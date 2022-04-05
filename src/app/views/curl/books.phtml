@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: rgb(255, 222, 173);">
+<h1 style="margin-left: 40%; color:rgb(255, 68, 51)"><u>BOOK SHOP</u></h1>
+<div id="container">
+<?php
+foreach ($books as $k => $v) {
+    if (is_array($v))
+    {
+        foreach ($v as $k1 => $v1) {
+            foreach ($v1 as $k2 => $v2) {
+                echo "<form action= '/curl/fullpage/' method='post'>";
+               if ($k2 == 'edition_key') {
+                    echo '<span><img src="http://covers.openlibrary.org/b/olid/'.$v2[0].'-M.jpg"></span><br>';
+                    echo '<input type="hidden" name ="image" value ="'.$v2[0].'">';
+                }
+                if ($k2 == 'id_google') 
+                {
+                    echo '<h5 style="color:rgb(204, 85, 0)"><input type="hidden" name = "google_id" value ="'.$v2[0].'">Tiltle: '.$v2[0].'</h5><br>';
+                }
+                        
+                if ($k2 == 'title') {
+                    echo '<h5 style="color:rgb(204, 85, 0)"><input type="hidden" name = "title" value ="'.$v2.'">Tiltle: '.$v2.'</h5><br>';
+                }
+                if ($k2 == 'publish_date') {
+                    echo '<input type="hidden" name = "publish" value ="'.$v2[0].'">Publishing Date: '.$v2[0].'</span><br>';
+                }
+                if ($k2 == 'number_of_pages_median') {
+                    echo '<span><input type="hidden" name = "pages" value ="'.$v2.'">Total Pages: '.$v2.'</span><br>';
+                }
+                if ($k2 == 'isbn') {
+                    echo '<span><input type="hidden" name = "isbn" value ="'.$v2[0].'">ISBN: '.$v2[0].'</span><br>';
+              
+                }
+                if ($k2 == 'author_name') {
+                    echo '<span><input type="hidden" name = "author" value ="'.$v2[0].'">Author Name: '.$v2[0].'</span><br>';
+                }
+                
+                
+            }
+            echo "<input type = 'submit' value = 'Click here to read' style ='background-color:rgb(248, 131, 121)'>";
+            echo "</form>";
+            echo "<br>";
+            echo "<br>";
+            
+        }
+        
+    }
+  
+}
+?>
+</div>
+</body>
+</html>
