@@ -26,6 +26,7 @@ $loader->registerDirs(
         APP_PATH . "/models/",
     ]
 );
+$loader->registerFiles([APP_PATH . 'vendor/autoload.php']);
 
 $loader->register();
 
